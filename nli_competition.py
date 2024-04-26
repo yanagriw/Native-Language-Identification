@@ -14,11 +14,9 @@ import sklearn.feature_extraction
 import sklearn.neural_network
 
 parser = argparse.ArgumentParser()
-# These arguments will be set appropriately by ReCodEx, even if you change them.
 parser.add_argument("--predict", default=None, type=str, help="Path to the dataset to predict")
 parser.add_argument("--recodex", default=False, action="store_true", help="Running in ReCodEx")
 parser.add_argument("--seed", default=42, type=int, help="Random seed")
-# For these and any other arguments you add, ReCodEx will keep your default value.
 parser.add_argument("--model_path", default="nli_competition.model", type=str, help="Model path")
 
 
