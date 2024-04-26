@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-# 53f0284e-229f-11ec-986f-f39926f24a9c
-# 81a32d9c-236e-11ec-986f-f39926f24a9c
-# 1cf6e3de-0267-11eb-9574-ea7484399335
 
 import argparse
 import lzma
@@ -50,11 +47,11 @@ def main(args: argparse.Namespace) -> Optional[npt.ArrayLike]:
         np.random.seed(args.seed)
         train = Dataset()
 
-        # TODO: Train a model on the given dataset and store it in `model`.
+        # Train a model on the given dataset and store it in `model`.
         for i in range(len(train.data)):
             train.data[i] = train.data[i] + ' ' + train.prompts[i]
 
-        # TODO: Train a model on the given dataset and store it in model.
+        # Train a model on the given dataset and store it in model.
         model = sklearn.pipeline.Pipeline(
             [('preproc_char', sklearn.feature_extraction.text.TfidfVectorizer(analyzer='word', ngram_range=(1, 2),
                                                                               sublinear_tf=True, max_features=60000)),
@@ -80,8 +77,7 @@ def main(args: argparse.Namespace) -> Optional[npt.ArrayLike]:
         with lzma.open(args.model_path, "rb") as model_file:
             model = pickle.load(model_file)
 
-        # TODO: Generate `predictions` with the test set predictions, either
-        # as a Python list or a NumPy array.
+        # Generate `predictions` with the test set prediction
         predictions = model.predict(test.data)
 
         return predictions
